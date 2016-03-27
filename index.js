@@ -12,6 +12,11 @@ $('.nav a').click(function () {
 
 /**/
 var bScroll = true;
+var _animate = function (h) {
+	$("html,body").animate({scrollTop:h},600,function () {
+		bScroll = true;
+	});
+}
 mousewheel($('body')[0],function (event) {
 	if(!bScroll){
 		return;
@@ -27,37 +32,24 @@ mousewheel($('body')[0],function (event) {
 			return;
 		}
 	 	if(scrollTop>0&&scrollTop<h1 || scrollTop==0){
-	 		$("html,body").animate({scrollTop:h1},600,function () {
-	 			bScroll = true;
-	 		});
+	 		_animate(h1);
 	 	}else if(scrollTop>h1&&scrollTop<h2 || scrollTop == h1){
-	 		$("html,body").animate({scrollTop:h2},600,function () {
-	 			bScroll = true;
-	 		});
+	 		_animate(h2);
 	 	}else if(scrollTop>h2&&scrollTop<h3 || scrollTop == h2){
-	 		$("html,body").animate({scrollTop:h3},600,function () {
-	 			bScroll = true;
-	 		});
+	 		_animate(h3);
 	 	}else{
 	 		bScroll = true;
 	 	}
 	}else{// 鼠标向上滚
 	 	if(scrollTop>0&&scrollTop<h1 || scrollTop == h1){
-	 		$("html,body").animate({scrollTop:0},600,function () {
-	 			bScroll = true;
-	 		});
+	 		_animate(h0);
 	 	}else if(scrollTop>h1&&scrollTop<h2 || scrollTop == h2){
-	 		$("html,body").animate({scrollTop:h1},600,function () {
-	 			bScroll = true;
-	 		});
+	 		_animate(h1);
 	 	}else if(scrollTop>h2&&scrollTop<h3 || scrollTop == h3){
-	 		$("html,body").animate({scrollTop:h2},600,function () {
-	 			bScroll = true;
-	 		});
+	 		_animate(h2);
 	 	}else{
 	 		bScroll = true;
 	 	}
-
 	}
 });
 
