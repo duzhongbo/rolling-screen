@@ -13,15 +13,20 @@ $('.nav a').click(function () {
 /**/
 var bScroll = true;
 mousewheel($('body')[0],function (event) {
-	console.log(bScroll);
 	if(!bScroll){
 		return;
 	}
 	bScroll = false;
 	var dis = event.delta,
 		scrollTop = document.body.scrollTop;
+	var h = scrollTop + document.documentElement.clientHeight;
 	// 鼠标向下滚
 	if (dis < 0) {
+		console.log("hello world!",scrollTop,bScroll);
+		if(h==wrap.offsetHeight){
+			bScroll = true;
+			return;
+		}
 	 	if(scrollTop>0&&scrollTop<h1 || scrollTop==0){
 	 		$("html,body").animate({scrollTop:h1},600,function () {
 	 			bScroll = true;
@@ -38,6 +43,7 @@ mousewheel($('body')[0],function (event) {
 	 		bScroll = true;
 	 	}
 	}else{// 鼠标向上滚
+		console.log(bScroll);
 	 	if(scrollTop>0&&scrollTop<h1 || scrollTop == h1){
 	 		$("html,body").animate({scrollTop:0},600,function () {
 	 			bScroll = true;
