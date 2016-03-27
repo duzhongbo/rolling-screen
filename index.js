@@ -22,7 +22,6 @@ mousewheel($('body')[0],function (event) {
 	var h = scrollTop + document.documentElement.clientHeight;
 	// 鼠标向下滚
 	if (dis < 0) {
-		console.log("hello world!",scrollTop,bScroll);
 		if(h==wrap.offsetHeight){
 			bScroll = true;
 			return;
@@ -43,7 +42,6 @@ mousewheel($('body')[0],function (event) {
 	 		bScroll = true;
 	 	}
 	}else{// 鼠标向上滚
-		console.log(bScroll);
 	 	if(scrollTop>0&&scrollTop<h1 || scrollTop == h1){
 	 		$("html,body").animate({scrollTop:0},600,function () {
 	 			bScroll = true;
